@@ -1,0 +1,64 @@
+<div>
+  <div class="container">
+    <div class="text-center">
+      <!-- items being paged -->
+
+
+
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Ticket No</th>
+          <th>Ticket Summary</th>
+          <th>Device</th>
+          <th>Description</th>
+          <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        <tr *ngFor="let item of pagedItems">
+          <td>{{item.id}}</td>
+          <td>{{item.ticket_summary}}</td>
+          <td>{{item.device}}</td>
+          <td>{{item.description}}</td>
+          <td>{{item.status_name}}</td>
+        </tr>
+
+        </tbody>
+      </table>
+
+
+
+
+      <!-- pager -->
+      <nav aria-label="Page navigation example">
+        <ul *ngIf="pager.pages && pager.pages.length" class="pagination justify-content-end">
+          <li  [ngClass]="{disabled:pager.currentPage === 1}" class="page-item" >
+            <a class="page-link" (click)="setPage(1)">First</a>
+          </li>
+          <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item">
+            <a class="page-link" (click)="setPage(pager.currentPage - 1)">Previous</a>
+          </li>
+
+          <li *ngFor="let page of pager.pages" class="page-item" [ngClass]="{active:pager.currentPage === page}">
+            <a  class="page-link"  (click)="setPage(page)">{{page}}</a>
+          </li>
+          <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item">
+            <a   class="page-link" (click)="setPage(pager.currentPage + 1)">Next</a>
+          </li>
+          <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item">
+            <a  class="page-link" (click)="setPage(pager.totalPages)">Last</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+

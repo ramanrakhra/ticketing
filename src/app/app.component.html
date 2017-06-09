@@ -1,3 +1,61 @@
-<h1>
-  {{title}}
-</h1>
+<md-toolbar color="primary">
+  <span>GoDigitell Dashboard</span>
+  <span class="spacer"></span>
+  <button md-icon-button [mdMenuTriggerFor]="menu">
+    <md-icon>more_vert</md-icon>
+  </button>
+  <md-menu #menu="mdMenu">
+    <button md-menu-item>
+      <md-icon>fingerprint</md-icon>
+      <span>Login</span>
+    </button>
+    <button md-menu-item disabled>
+      <md-icon>announcement</md-icon>
+      <span>Issues</span>
+    </button>
+    <button md-menu-item>
+      <md-icon>settings_applications</md-icon>
+      <span>Settings</span>
+    </button>
+  </md-menu>
+</md-toolbar>
+<md-card>
+  <a routerLink="/new-tickets" routerLinkActive="active"> <button md-raised-button color="primary"> New Tickets</button></a>
+  <a routerLink="/resolved-tickets" routerLinkActive="active"><button md-raised-button color="primary">Resolved Tickets</button></a>
+  <a routerLink="/add-tickets" routerLinkActive="active"> <button md-raised-button color="primary"> Add Tickets</button></a>
+  <router-outlet></router-outlet>
+</md-card>
+
+
+<!--<div>
+  <div class="container">
+    <div class="text-center">
+      &lt;!&ndash; items being paged &ndash;&gt;
+      <div *ngFor="let item of pagedItems">{{item.name}}</div>
+
+      &lt;!&ndash; pager &ndash;&gt;
+      <nav aria-label="Page navigation example">
+        <ul *ngIf="pager.pages && pager.pages.length" class="pagination justify-content-end">
+          <li  [ngClass]="{disabled:pager.currentPage === 1}" class="page-item" >
+            <a class="page-link" (click)="setPage(1)">First</a>
+          </li>
+          <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item">
+            <a class="page-link" (click)="setPage(pager.currentPage - 1)">Previous</a>
+          </li>
+
+          <li *ngFor="let page of pager.pages" class="page-item" [ngClass]="{active:pager.currentPage === page}">
+            <a  class="page-link"  (click)="setPage(page)">{{page}}</a>
+          </li>
+          <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item">
+            <a   class="page-link" (click)="setPage(pager.currentPage + 1)">Next</a>
+          </li>
+          <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item">
+            <a  class="page-link" (click)="setPage(pager.totalPages)">Last</a>
+          </li>
+       </ul>
+      </nav>
+    </div>
+  </div>
+</div>-->
+
+
